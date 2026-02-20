@@ -84,10 +84,6 @@ PRODUCT_COPY_FILES += \
 
 $(call soong_config_set,android_hardware_audio,skip_speaker_layout_channel_mask_field,true)
 
-# Bluetooth
-PRODUCT_PACKAGES += \
-    android.hardware.bluetooth-service.mediatek
-
 # Cgroup
 PRODUCT_COPY_FILES += \
     system/core/libprocessgroup/profiles/cgroups.json:$(TARGET_COPY_OUT_VENDOR)/etc/cgroups.json \
