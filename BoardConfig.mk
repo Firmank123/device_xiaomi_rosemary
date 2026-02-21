@@ -98,9 +98,10 @@ TARGET_KERNEL_CONFIG := rosemary_defconfig
 TARGET_KERNEL_NO_GCC := true
 BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_KERNEL_IMAGE_NAME := Image.gz
+BOARD_PREBUILT_DTBOIMAGE := $(TARGET_KERNEL_DIR)/dtbo.img
 
 # OTA assert
-TARGET_OTA_ASSERT_DEVICE := rosemary,rosemary_p,secret,secretr,maltose
+TARGET_OTA_ASSERT_DEVICE := rosemary
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072                   # 2048      * 64   (pagesize)

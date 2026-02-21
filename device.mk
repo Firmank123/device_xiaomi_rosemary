@@ -167,6 +167,14 @@ PRODUCT_PACKAGES += \
 # UFFD GC
 PRODUCT_ENABLE_UFFD_GC := true
 
+# Kernel
+TARGET_KERNEL_VERSION ?= 4.19
+TARGET_KERNEL_DIR ?= device/xiaomi/rosemary-kernel
+
+PRODUCT_COPY_FILES += \
+    $(TARGET_KERNEL_DIR)/Image.gz-dtb:kernel \
+    $(TARGET_KERNEL_DIR)/dtb.img:dtb.img
+
 # Lights
 PRODUCT_PACKAGES += \
     android.hardware.light-service.lineage
