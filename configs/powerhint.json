@@ -136,7 +136,9 @@
       "Values": [
         "0",
         "15",
+        "20",
         "30",
+        "50",
         "100"
       ],
       "DefaultIndex": 0,
@@ -147,7 +149,10 @@
       "Path": "/dev/cpuctl/top-app/cpu.uclamp.min",
       "Values": [
         "0",
+        "25",
         "30",
+        "45",
+        "50",
         "100"
       ],
       "DefaultIndex": 0,
@@ -178,42 +183,83 @@
     }
   ],
   "Actions": [
+
     {
       "PowerHint": "INTERACTION",
       "Node": "CPULittleClusterMinFreq",
-      "Duration": 58,
-      "Value": "1275000"
-    },
-    {
-      "PowerHint": "INTERACTION",
-      "Node": "CPUBigClusterMinFreq",
-      "Duration": 58,
-      "Value": "1169000"
+      "Duration": 48,
+      "Value": "1075000"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "UclampFGMin",
-      "Duration": 58,
-      "Value": "15"
+      "Duration": 48,
+      "Value": "20"
+    },
+    {
+      "PowerHint": "INTERACTION",
+      "Node": "UclampTAMin",
+      "Duration": 48,
+      "Value": "30"
+    },
+
+    {
+      "PowerHint": "DISPLAY_UPDATE_IMMINENT",
+      "Node": "CPULittleClusterMinFreq",
+      "Duration": 32,
+      "Value": "975000"
+    },
+    {
+      "PowerHint": "DISPLAY_UPDATE_IMMINENT",
+      "Node": "UclampTAMin",
+      "Duration": 32,
+      "Value": "25"
+    },
+
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "CPULittleClusterMinFreq",
+      "Duration": 500,
+      "Value": "1275000"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "CPUBigClusterMinFreq",
-      "Duration": 1500,
-      "Value": "9999999"
-    },
-    {
-      "PowerHint": "LAUNCH",
-      "Node": "CPULittleClusterMinFreq",
-      "Duration": 1500,
-      "Value": "9999999"
+      "Duration": 500,
+      "Value": "1419000"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "DRAMOppMin",
-      "Duration": 1500,
+      "Duration": 400,
       "Value": "1"
     },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "UclampTAMin",
+      "Duration": 500,
+      "Value": "50"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "UclampFGMin",
+      "Duration": 500,
+      "Value": "50"
+    },
+
+    {
+      "PowerHint": "SUSTAINED_PERFORMANCE",
+      "Node": "CPULittleClusterMaxFreq",
+      "Duration": 0,
+      "Value": "1800000"
+    },
+    {
+      "PowerHint": "SUSTAINED_PERFORMANCE",
+      "Node": "CPUBigClusterMaxFreq",
+      "Duration": 0,
+      "Value": "1670000"
+    },
+
     {
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "PowerHALRenderingState",
@@ -222,9 +268,15 @@
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
+      "Node": "GPUSchedMode",
+      "Duration": 0,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "GPUSchedPeriod",
       "Duration": 0,
-      "Value": "100"
+      "Value": "50"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
@@ -234,15 +286,152 @@
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
-      "Node": "GPUSchedMode",
+      "Node": "UclampTAMin",
       "Duration": 0,
-      "Value": "1"
+      "Value": "50"
     },
+
     {
       "PowerHint": "DOUBLE_TAP_TO_WAKE",
       "Node": "DoubleTapToWakeEnable",
       "Duration": 0,
       "Value": "1"
+    },
+
+    {
+      "PowerHint": "GAME_LOADING",
+      "Node": "CPUBigClusterMinFreq",
+      "Duration": 1500,
+      "Value": "1530000"
+    },
+    {
+      "PowerHint": "GAME_LOADING",
+      "Node": "CPULittleClusterMinFreq",
+      "Duration": 1500,
+      "Value": "1275000"
+    },
+    {
+      "PowerHint": "GAME_LOADING",
+      "Node": "DRAMOppMin",
+      "Duration": 1000,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "GAME_LOADING",
+      "Node": "UclampTAMin",
+      "Duration": 1500,
+      "Value": "50"
+    },
+
+    {
+      "PowerHint": "THERMAL_CPU_LIGHT",
+      "Node": "CPUBigClusterMaxFreq",
+      "Duration": 0,
+      "Value": "1860000"
+    },
+    {
+      "PowerHint": "THERMAL_CPU_MODERATE",
+      "Node": "CPUBigClusterMaxFreq",
+      "Duration": 0,
+      "Value": "1733000"
+    },
+    {
+      "PowerHint": "THERMAL_CPU_MODERATE",
+      "Node": "CPULittleClusterMaxFreq",
+      "Duration": 0,
+      "Value": "1800000"
+    },
+    {
+      "PowerHint": "THERMAL_CPU_SEVERE",
+      "Node": "CPUBigClusterMaxFreq",
+      "Duration": 0,
+      "Value": "1670000"
+    },
+    {
+      "PowerHint": "THERMAL_CPU_SEVERE",
+      "Node": "CPULittleClusterMaxFreq",
+      "Duration": 0,
+      "Value": "1800000"
+    },
+    {
+      "PowerHint": "THERMAL_CPU_SEVERE",
+      "Node": "UclampTAMin",
+      "Duration": 0,
+      "Value": "25"
+    },
+    {
+      "PowerHint": "THERMAL_CPU_CRITICAL",
+      "Node": "CPUBigClusterMaxFreq",
+      "Duration": 0,
+      "Value": "1530000"
+    },
+    {
+      "PowerHint": "THERMAL_CPU_CRITICAL",
+      "Node": "CPULittleClusterMaxFreq",
+      "Duration": 0,
+      "Value": "1666000"
+    },
+    {
+      "PowerHint": "THERMAL_CPU_CRITICAL",
+      "Node": "UclampTAMin",
+      "Duration": 0,
+      "Value": "25"
+    },
+
+    {
+      "PowerHint": "THERMAL_GPU_MODERATE",
+      "Node": "GPUSchedPeriod",
+      "Duration": 0,
+      "Value": "75"
+    },
+    {
+      "PowerHint": "THERMAL_GPU_SEVERE",
+      "Node": "GPUSchedPeriod",
+      "Duration": 0,
+      "Value": "100"
+    },
+    {
+      "PowerHint": "THERMAL_GPU_SEVERE",
+      "Node": "GPUDVFSInterval",
+      "Duration": 0,
+      "Value": "100"
+    },
+
+    {
+      "PowerHint": "THERMAL_mtktsAP_LIGHT",
+      "Node": "CPUBigClusterMaxFreq",
+      "Duration": 0,
+      "Value": "1860000"
+    },
+    {
+      "PowerHint": "THERMAL_mtktsAP_MODERATE",
+      "Node": "CPUBigClusterMaxFreq",
+      "Duration": 0,
+      "Value": "1796000"
+    },
+    {
+      "PowerHint": "THERMAL_mtktsAP_MODERATE",
+      "Node": "CPULittleClusterMaxFreq",
+      "Duration": 0,
+      "Value": "1800000"
+    },
+    {
+      "PowerHint": "THERMAL_mtktsAP_SEVERE",
+      "Node": "CPUBigClusterMaxFreq",
+      "Duration": 0,
+      "Value": "1670000"
+    },
+    {
+      "PowerHint": "THERMAL_mtktsAP_SEVERE",
+      "Node": "CPULittleClusterMaxFreq",
+      "Duration": 0,
+      "Value": "1800000"
+    },
+    {
+      "PowerHint": "THERMAL_mtktsAP_SEVERE",
+      "Node": "UclampTAMin",
+      "Duration": 0,
+      "Value": "25"
     }
   ]
 }
