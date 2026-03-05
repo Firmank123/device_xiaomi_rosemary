@@ -204,19 +204,6 @@
     },
 
     {
-      "PowerHint": "DISPLAY_UPDATE_IMMINENT",
-      "Node": "CPULittleClusterMinFreq",
-      "Duration": 32,
-      "Value": "975000"
-    },
-    {
-      "PowerHint": "DISPLAY_UPDATE_IMMINENT",
-      "Node": "UclampTAMin",
-      "Duration": 32,
-      "Value": "25"
-    },
-
-    {
       "PowerHint": "LAUNCH",
       "Node": "CPULittleClusterMinFreq",
       "Duration": 500,
