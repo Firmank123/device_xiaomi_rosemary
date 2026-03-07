@@ -4,33 +4,33 @@
       "Name": "CPU",
       "Type": "CPU",
       "ZoneName": "mtktscpu",
-      "HotThreshold": ["NaN", 70, 77, 85, 92, 102, 115],
-      "HotHysteresis": [0, 5, 5, 5, 5, 3, 0],
-      "VrThreshold": "82.0",
+      "HotThreshold": ["NaN", 75, 85, 92, 100, 108, 115],
+      "HotHysteresis": [0, 8, 8, 7, 6, 4, 0],
+      "VrThreshold": "90.0",
       "Multiplier": 0.001
     },
     {
       "Name": "GPU",
       "Type": "GPU",
       "ZoneName": "mtktscpu",
-      "HotThreshold": ["NaN", 70, 77, 85, 92, 102, 115],
-      "HotHysteresis": [0, 5, 5, 5, 5, 3, 0],
-      "VrThreshold": "82.0",
+      "HotThreshold": ["NaN", 75, 85, 92, 100, 108, 115],
+      "HotHysteresis": [0, 8, 8, 7, 6, 4, 0],
+      "VrThreshold": "90.0",
       "Multiplier": 0.001
     },
     {
       "Name": "mtktsbattery",
       "Type": "BATTERY",
-      "HotThreshold": ["NaN", "NaN", "NaN", 50, 55, 59, 60],
-      "VrThreshold": "50.0",
+      "HotThreshold": ["NaN", "NaN", "NaN", 52, 57, 60, 62],
+      "VrThreshold": "52.0",
       "Multiplier": 0.001
     },
     {
       "Name": "mtktsAP",
       "Type": "SKIN",
-      "HotThreshold": ["NaN", 45, 50, 55, 62, 67, 72],
-      "HotHysteresis": [0, 3, 3, 3, 3, 3, 0],
-      "VrThreshold": "48.0",
+      "HotThreshold": ["NaN", 47, 52, 57, 63, 68, 73],
+      "HotHysteresis": [0, 5, 5, 4, 4, 3, 0],
+      "VrThreshold": "50.0",
       "Multiplier": 0.001
     },
     {
@@ -44,8 +44,8 @@
       "Name": "NPU",
       "Type": "NPU",
       "ZoneName": "mtktscpu",
-      "HotThreshold": ["NaN", 70, 77, 85, 92, 102, 115],
-      "HotHysteresis": [0, 5, 5, 5, 5, 3, 0],
+      "HotThreshold": ["NaN", 75, 85, 92, 100, 108, 115],
+      "HotHysteresis": [0, 8, 8, 7, 6, 4, 0],
       "VrThreshold": "NaN",
       "Multiplier": 0.001
     }
