@@ -115,7 +115,7 @@
         "100",
         "75",
         "50",
-        "0"
+        "32"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
@@ -126,8 +126,31 @@
       "Values": [
         "100",
         "75",
-        "50"
+        "50",
+        "32"
       ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "GEDDvfsMargin",
+      "Path": "/sys/kernel/ged/hal/dvfs_margin_value",
+      "Values": [
+        "10",
+        "16",
+        "24"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {
+      "Name": "GEDLoadingStep",
+      "Path": "/sys/kernel/ged/hal/loading_base_dvfs_step",
+      "Values": [
+        "4",
+        "6",
+        "8"
+      ],
+      "DefaultIndex": 0,
       "ResetOnInit": true
     },
     {
@@ -135,10 +158,11 @@
       "Path": "/dev/cpuctl/foreground/cpu.uclamp.min",
       "Values": [
         "0",
-        "15",
+        "10",
         "20",
         "30",
         "50",
+        "60",
         "100"
       ],
       "DefaultIndex": 0,
@@ -149,11 +173,23 @@
       "Path": "/dev/cpuctl/top-app/cpu.uclamp.min",
       "Values": [
         "0",
-        "25",
-        "30",
-        "45",
+        "20",
+        "35",
         "50",
+        "60",
+        "75",
         "100"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {
+      "Name": "UclampCamMin",
+      "Path": "/dev/cpuctl/camera-daemon/cpu.uclamp.min",
+      "Values": [
+        "0",
+        "40",
+        "60"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
@@ -166,6 +202,27 @@
         "-1"
       ],
       "ResetOnInit": true
+    },
+    {
+      "Name": "EASBigTaskRotation",
+      "Path": "/proc/perfmgr/boost_ctrl/eas_ctrl/sched_big_task_rotation",
+      "Values": [
+        "1",
+        "0"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": false
+    },
+    {
+      "Name": "SchedMigrationCost",
+      "Path": "/proc/sys/kernel/sched_migration_cost_ns",
+      "Values": [
+        "200000",
+        "500000",
+        "50000"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": false
     },
     {
       "Name": "DoubleTapToWakeEnable",
@@ -187,51 +244,99 @@
     {
       "PowerHint": "INTERACTION",
       "Node": "CPULittleClusterMinFreq",
-      "Duration": 48,
-      "Value": "1075000"
+      "Duration": 80,
+      "Value": "1175000"
+    },
+    {
+      "PowerHint": "INTERACTION",
+      "Node": "CPUBigClusterMinFreq",
+      "Duration": 80,
+      "Value": "1308000"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "UclampFGMin",
-      "Duration": 48,
-      "Value": "20"
+      "Duration": 80,
+      "Value": "30"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "UclampTAMin",
-      "Duration": 48,
-      "Value": "30"
+      "Duration": 80,
+      "Value": "35"
+    },
+    {
+      "PowerHint": "INTERACTION",
+      "Node": "GPUDVFSInterval",
+      "Duration": 80,
+      "Value": "50"
+    },
+    {
+      "PowerHint": "INTERACTION",
+      "Node": "GEDDvfsMargin",
+      "Duration": 80,
+      "Value": "16"
     },
 
     {
       "PowerHint": "LAUNCH",
       "Node": "CPULittleClusterMinFreq",
-      "Duration": 500,
-      "Value": "1275000"
+      "Duration": 600,
+      "Value": "1375000"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "CPUBigClusterMinFreq",
-      "Duration": 500,
-      "Value": "1419000"
+      "Duration": 600,
+      "Value": "1530000"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "DRAMOppMin",
-      "Duration": 400,
+      "Duration": 500,
       "Value": "1"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "UclampTAMin",
-      "Duration": 500,
-      "Value": "50"
+      "Duration": 600,
+      "Value": "60"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "UclampFGMin",
-      "Duration": 500,
+      "Duration": 600,
+      "Value": "60"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "GPUSchedPeriod",
+      "Duration": 600,
       "Value": "50"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "GPUDVFSInterval",
+      "Duration": 600,
+      "Value": "50"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "GEDDvfsMargin",
+      "Duration": 600,
+      "Value": "24"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "GEDLoadingStep",
+      "Duration": 600,
+      "Value": "8"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "SchedMigrationCost",
+      "Duration": 600,
+      "Value": "50000"
     },
 
     {
@@ -244,7 +349,19 @@
       "PowerHint": "SUSTAINED_PERFORMANCE",
       "Node": "CPUBigClusterMaxFreq",
       "Duration": 0,
-      "Value": "1670000"
+      "Value": "1733000"
+    },
+    {
+      "PowerHint": "SUSTAINED_PERFORMANCE",
+      "Node": "UclampTAMin",
+      "Duration": 0,
+      "Value": "20"
+    },
+    {
+      "PowerHint": "SUSTAINED_PERFORMANCE",
+      "Node": "GEDDvfsMargin",
+      "Duration": 0,
+      "Value": "10"
     },
 
     {
@@ -263,19 +380,81 @@
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "GPUSchedPeriod",
       "Duration": 0,
-      "Value": "50"
+      "Value": "32"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "GPUDVFSInterval",
       "Duration": 0,
-      "Value": "75"
+      "Value": "50"
+    },
+    {
+      "PowerHint": "EXPENSIVE_RENDERING",
+      "Node": "GEDDvfsMargin",
+      "Duration": 0,
+      "Value": "24"
+    },
+    {
+      "PowerHint": "EXPENSIVE_RENDERING",
+      "Node": "GEDLoadingStep",
+      "Duration": 0,
+      "Value": "8"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "UclampTAMin",
       "Duration": 0,
       "Value": "50"
+    },
+    {
+      "PowerHint": "EXPENSIVE_RENDERING",
+      "Node": "CPUBigClusterMinFreq",
+      "Duration": 0,
+      "Value": "1169000"
+    },
+
+    {
+      "PowerHint": "CAMERA_STREAMING",
+      "Node": "CPULittleClusterMinFreq",
+      "Duration": 0,
+      "Value": "1175000"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING",
+      "Node": "CPUBigClusterMinFreq",
+      "Duration": 0,
+      "Value": "1085000"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING",
+      "Node": "UclampTAMin",
+      "Duration": 0,
+      "Value": "35"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING",
+      "Node": "UclampCamMin",
+      "Duration": 0,
+      "Value": "40"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING",
+      "Node": "GPUDVFSInterval",
+      "Duration": 0,
+      "Value": "50"
+    },
+
+    {
+      "PowerHint": "AUDIO_STREAMING",
+      "Node": "CPULittleClusterMinFreq",
+      "Duration": 0,
+      "Value": "975000"
+    },
+    {
+      "PowerHint": "AUDIO_STREAMING",
+      "Node": "UclampFGMin",
+      "Duration": 0,
+      "Value": "10"
     },
 
     {
@@ -288,45 +467,57 @@
     {
       "PowerHint": "GAME_LOADING",
       "Node": "CPUBigClusterMinFreq",
-      "Duration": 1500,
-      "Value": "1530000"
+      "Duration": 2000,
+      "Value": "1670000"
     },
     {
       "PowerHint": "GAME_LOADING",
       "Node": "CPULittleClusterMinFreq",
-      "Duration": 1500,
-      "Value": "1275000"
+      "Duration": 2000,
+      "Value": "1375000"
     },
     {
       "PowerHint": "GAME_LOADING",
       "Node": "DRAMOppMin",
-      "Duration": 1000,
+      "Duration": 1500,
       "Value": "1"
     },
     {
       "PowerHint": "GAME_LOADING",
       "Node": "UclampTAMin",
-      "Duration": 1500,
+      "Duration": 2000,
+      "Value": "60"
+    },
+    {
+      "PowerHint": "GAME_LOADING",
+      "Node": "GPUDVFSInterval",
+      "Duration": 2000,
       "Value": "50"
+    },
+    {
+      "PowerHint": "GAME_LOADING",
+      "Node": "GEDDvfsMargin",
+      "Duration": 2000,
+      "Value": "24"
     },
 
     {
       "PowerHint": "THERMAL_CPU_LIGHT",
       "Node": "CPUBigClusterMaxFreq",
       "Duration": 0,
-      "Value": "1860000"
+      "Value": "1923000"
     },
     {
       "PowerHint": "THERMAL_CPU_MODERATE",
       "Node": "CPUBigClusterMaxFreq",
       "Duration": 0,
-      "Value": "1733000"
+      "Value": "1796000"
     },
     {
       "PowerHint": "THERMAL_CPU_MODERATE",
       "Node": "CPULittleClusterMaxFreq",
       "Duration": 0,
-      "Value": "1800000"
+      "Value": "1933000"
     },
     {
       "PowerHint": "THERMAL_CPU_SEVERE",
@@ -344,30 +535,36 @@
       "PowerHint": "THERMAL_CPU_SEVERE",
       "Node": "UclampTAMin",
       "Duration": 0,
-      "Value": "25"
+      "Value": "20"
     },
     {
       "PowerHint": "THERMAL_CPU_CRITICAL",
       "Node": "CPUBigClusterMaxFreq",
       "Duration": 0,
-      "Value": "1530000"
+      "Value": "1419000"
     },
     {
       "PowerHint": "THERMAL_CPU_CRITICAL",
       "Node": "CPULittleClusterMaxFreq",
       "Duration": 0,
-      "Value": "1666000"
+      "Value": "1618000"
     },
     {
       "PowerHint": "THERMAL_CPU_CRITICAL",
       "Node": "UclampTAMin",
       "Duration": 0,
-      "Value": "25"
+      "Value": "20"
     },
 
     {
       "PowerHint": "THERMAL_GPU_MODERATE",
       "Node": "GPUSchedPeriod",
+      "Duration": 0,
+      "Value": "75"
+    },
+    {
+      "PowerHint": "THERMAL_GPU_MODERATE",
+      "Node": "GPUDVFSInterval",
       "Duration": 0,
       "Value": "75"
     },
@@ -388,37 +585,37 @@
       "PowerHint": "THERMAL_mtktsAP_LIGHT",
       "Node": "CPUBigClusterMaxFreq",
       "Duration": 0,
+      "Value": "1986000"
+    },
+    {
+      "PowerHint": "THERMAL_mtktsAP_MODERATE",
+      "Node": "CPUBigClusterMaxFreq",
+      "Duration": 0,
       "Value": "1860000"
     },
     {
       "PowerHint": "THERMAL_mtktsAP_MODERATE",
-      "Node": "CPUBigClusterMaxFreq",
-      "Duration": 0,
-      "Value": "1796000"
-    },
-    {
-      "PowerHint": "THERMAL_mtktsAP_MODERATE",
       "Node": "CPULittleClusterMaxFreq",
       "Duration": 0,
-      "Value": "1800000"
+      "Value": "1933000"
     },
     {
       "PowerHint": "THERMAL_mtktsAP_SEVERE",
       "Node": "CPUBigClusterMaxFreq",
       "Duration": 0,
-      "Value": "1670000"
+      "Value": "1733000"
     },
     {
       "PowerHint": "THERMAL_mtktsAP_SEVERE",
       "Node": "CPULittleClusterMaxFreq",
       "Duration": 0,
-      "Value": "1800000"
+      "Value": "1866000"
     },
     {
       "PowerHint": "THERMAL_mtktsAP_SEVERE",
       "Node": "UclampTAMin",
       "Duration": 0,
-      "Value": "25"
+      "Value": "20"
     }
   ]
 }
